@@ -1,7 +1,6 @@
 use std::fs::File;
 use std::io::{BufReader, BufRead};
 use std::error::Error;
-use crate::day2::Movement::{Forward, Up, Down};
 
 enum Movement {
     Forward(i32),
@@ -29,20 +28,20 @@ struct Position {
 impl Position {
     fn advance(&mut self, movement: &Movement) {
         match movement {
-            Forward(x) => self.horizontal += x,
-            Up(y) => self.depth -= y,
-            Down(y) => self.depth += y
+            Movement::Forward(x) => self.horizontal += x,
+            Movement::Up(y) => self.depth -= y,
+            Movement::Down(y) => self.depth += y
         }
     }
 
     fn advance_aim(&mut self, movement: &Movement) {
         match movement {
-            Forward(val) => {
+            Movement::Forward(val) => {
                 self.horizontal += val;
                 self.depth += self.aim * val;
             },
-            Up(val) => self.aim -= val,
-            Down(val) => self.aim += val,
+            Movement::Up(val) => self.aim -= val,
+            Movement::Down(val) => self.aim += val,
         }
     }
 }
@@ -66,7 +65,7 @@ fn part_two(movements: &Vec<Movement>) -> i32 {
 }
 
 pub fn solve() -> Result<(String, String), Box<dyn Error>> {
-    let input = File::open("./input/day2.txt")?;
+    let input = File::open("../inputs/day2.txt")?;
     let reader = BufReader::new(input);
     let mut movements: Vec<Movement> = Vec::new();
 

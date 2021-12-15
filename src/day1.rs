@@ -31,7 +31,7 @@ fn part_two(depths: &Vec<u32>) -> u32 {
 }
 
 pub fn solve() -> Result<(String, String), Box<dyn Error>> {
-    let input = File::open("./input/day1.txt")?;
+    let input = File::open("../inputs/day1.txt")?;
     let reader = BufReader::new(input);
     let mut depths: Vec<u32> = Vec::new();
 

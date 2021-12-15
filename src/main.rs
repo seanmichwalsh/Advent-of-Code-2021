@@ -19,9 +19,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         _ => return Err("Advent of Code only runs from Dec 1-25!".into()),
     };
 
-    let result = result?;
-    println!("Day {} - Part 1: {}", day, result.0);
-    println!("Day {} - Part 2: {}", day, result.1);
+    let answer = result?;
+    println!("Day {} - Part 1: {}", day, answer.0);
+    println!("Day {} - Part 2: {}", day, answer.1);
 
     Ok(())
 }
